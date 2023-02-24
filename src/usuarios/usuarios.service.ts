@@ -31,7 +31,6 @@ export class UsuariosService {
   }
 
   async iniciarSesion(data: SignInUsuarioDto) {
-    console.log("data",data);
     let usuario = await this.prismaService.usuarios.findFirst({
       where: { nombre_usuario: data.nombre_usuario },
     });

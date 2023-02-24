@@ -24,19 +24,19 @@ export class PersonasController {
   @Get('filter')
   @UseGuards(new AuthGuard())
   consultarPorFecha(
-    @Body('data') data: FiltrarPersonaFechaDto,
+    @Body() data: FiltrarPersonaFechaDto,
   ): Promise<Persona[]> {
     console.log(data);
     return this.personasService.consultarPorFecha(data);
   }
 
   @Post('create')
-  crearPersona(@Body('data') data: CreatePersonaDto) {
+  crearPersona(@Body() data: CreatePersonaDto) {
     return this.personasService.crearPersona(data);
   }
 
   @Post('validate')
-  validarCodigoVerificacion(@Body('data') data: ValidateCodigoDto) {
+  validarCodigoVerificacion(@Body() data: ValidateCodigoDto) {
     return this.personasService.validarCodigoVerificacion(data);
   }
 }
