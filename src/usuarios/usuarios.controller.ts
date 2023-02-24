@@ -1,11 +1,6 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { UsuariosService } from './usuarios.service';
-import { CreateUsuarioDto, SignInUsuarioDto, } from './dto/usuario.dto';
+import { CreateUsuarioDto, SignInUsuarioDto } from './dto/usuario.dto';
 
 @Controller('usuarios')
 export class UsuariosController {
@@ -13,6 +8,7 @@ export class UsuariosController {
 
   @Get('signin')
   iniciarSesion(@Body('data') data: SignInUsuarioDto) {
+    console.log('data', data);
     return this.usuariosService.iniciarSesion(data);
   }
 

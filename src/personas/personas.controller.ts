@@ -26,6 +26,7 @@ export class PersonasController {
   consultarPorFecha(
     @Body('data') data: FiltrarPersonaFechaDto,
   ): Promise<Persona[]> {
+    console.log(data);
     return this.personasService.consultarPorFecha(data);
   }
 
