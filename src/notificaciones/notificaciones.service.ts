@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 const SibApiV3Sdk = require('sib-api-v3-typescript');
 
 @Injectable()
@@ -29,8 +29,7 @@ export class NotificacionesService {
       await apiInstance.sendTransacEmail(sendSmtpEmail);
     } catch (error) {
       console.log(JSON.stringify(error));
-      return error;
+      throw new InternalServerErrorException('Ocurrió un error',JSON.stringify(error));
     }
   }
-
 }

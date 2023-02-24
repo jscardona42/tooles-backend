@@ -6,14 +6,13 @@ import { CreateUsuarioDto, SignInUsuarioDto } from './dto/usuario.dto';
 export class UsuariosController {
   constructor(private readonly usuariosService: UsuariosService) {}
 
-  @Post('/signin')
-  async iniciarSesion(@Body('data') data: SignInUsuarioDto) {
-    console.log(data);
+  @Get('signin')
+  async iniciarSesion(@Body() data: SignInUsuarioDto) {
     return this.usuariosService.iniciarSesion(data);
   }
 
-  @Post('/create')
-  async crearUsuario(@Body('data') data: CreateUsuarioDto) {
+  @Post('create')
+  async crearUsuario(@Body() data: CreateUsuarioDto) {
     return this.usuariosService.crearUsuario(data);
   }
 }

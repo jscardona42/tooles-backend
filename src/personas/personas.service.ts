@@ -58,6 +58,13 @@ export class PersonasService {
           fecha_nacimiento: fecha_nacimiento,
           codigo_verificacion: codigo.toString(),
         },
+        select: {
+          persona_id: true,
+          nombre: true,
+          correo_electronico: true,
+          edad: true,
+          fecha_nacimiento: true,
+        },
       });
     } catch (error) {
       this.validarErrores(error);
@@ -92,6 +99,13 @@ export class PersonasService {
     let personaUpdate = await this.prismaService.personas.update({
       where: { persona_id: persona.persona_id },
       data: { verificado: true },
+      select: {
+        persona_id: true,
+        nombre: true,
+        correo_electronico: true,
+        edad: true,
+        fecha_nacimiento: true,
+      },
     });
 
     await this.notificacionesService.enviarCorreo(
