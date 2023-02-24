@@ -7,13 +7,13 @@ export class UsuariosController {
   constructor(private readonly usuariosService: UsuariosService) {}
 
   @Get('signin')
-  async iniciarSesion(@Body() data: SignInUsuarioDto) {
+  async iniciarSesion(@Body('data') data: SignInUsuarioDto) {
     console.log(data);
     return this.usuariosService.iniciarSesion(data);
   }
 
   @Post('create')
-  async crearUsuario(@Body() data: CreateUsuarioDto) {
+  async crearUsuario(@Body('data') data: CreateUsuarioDto) {
     return this.usuariosService.crearUsuario(data);
   }
 }
