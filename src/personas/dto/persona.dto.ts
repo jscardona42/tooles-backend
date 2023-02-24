@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsEmail, IsNumber, IsDateString } from 'class-validator';
+import { IsNotEmpty, IsEmail, IsNumber, IsDateString, IsISO8601 } from 'class-validator';
 
 export class CreatePersonaDto {
   @IsNotEmpty()
@@ -31,10 +31,10 @@ export class ValidateCodigoDto {
 
 export class FiltrarPersonaFechaDto {
   @IsNotEmpty()
-  @IsDateString()
+  @IsISO8601()
   fecha_inicio: Date;
 
   @IsNotEmpty()
-  @IsDateString()
+  @IsISO8601()
   fecha_fin: Date;
 }
