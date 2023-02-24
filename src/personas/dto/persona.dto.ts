@@ -31,10 +31,8 @@ export class ValidateCodigoDto {
 
 export class FiltrarPersonaFechaDto {
   @IsNotEmpty()
-  @IsISO8601()
   fecha_inicio: Date;
 
   @IsNotEmpty()
-  @IsISO8601()
   fecha_fin: Date;
 }
